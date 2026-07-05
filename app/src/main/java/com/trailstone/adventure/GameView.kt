@@ -108,7 +108,7 @@ class GameView(
             if (!paused && !gameOver) update()
             val canvas = holder.lockCanvas() ?: continue
             try {
-                draw(canvas)
+                render(canvas)
             } finally {
                 holder.unlockCanvasAndPost(canvas)
             }
@@ -170,7 +170,7 @@ class GameView(
         }
     }
 
-    private fun draw(canvas: Canvas) {
+    private fun render(canvas: Canvas) {
         canvas.drawBitmap(bgBitmap, null, RectF(0f, 0f, screenW.toFloat(), screenH.toFloat()), paint)
 
         items.forEach { it.draw(canvas, paint) }
